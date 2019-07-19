@@ -1,0 +1,15 @@
+config: !!PhysicsConfig
+  block-physics: true
+  temperature: true
+  fire-smoke: true
+  steam: true
+  enhanced-fire: true
+  enhanced-explosions: true
+  explosion-potency: 1.0
+  ash: true
+  netherrack: true
+  realistic-drops: false
+  worlds:
+  - world
+  - world_nether
+  - world_the_end
