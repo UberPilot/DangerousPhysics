@@ -1,4 +1,4 @@
-package spacetime.main;
+package me.evillootly.physics;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,13 +6,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.util.Vector;
 
 public class gasManager {
 	
@@ -63,7 +61,7 @@ public class gasManager {
 		HashMap<Location, Double> gasLocations2 = new HashMap<Location, Double>(gasLocations);
 		if(gravity == 1) {
 			for(Location l : gasLocations2.keySet()) {
-				if((mainfile.instance.isAir(l.clone().add(0, 1, 0).getBlock().getType())||l.clone().add(0, 1, 0).getBlock().getType()==Material.FIRE)&&(!gasLocations2.containsKey(l.clone().add(0, 1, 0)))) {
+				if((DangerousPhysics.instance.isAir(l.clone().add(0, 1, 0).getBlock().getType())||l.clone().add(0, 1, 0).getBlock().getType()==Material.FIRE)&&(!gasLocations2.containsKey(l.clone().add(0, 1, 0)))) {
 					double concentration = gasLocations2.get(l);
 					Location newLocation = l.clone().add(0, 1, 0);
 					gasLocations.remove(l);
@@ -82,7 +80,7 @@ public class gasManager {
 		}
 		else {
 			for(Location l : gasLocations2.keySet()) {
-				if((mainfile.instance.isAir(l.clone().subtract(0, 1, 0).getBlock().getType())||l.clone().subtract(0, 1, 0).getBlock().getType()==Material.FIRE)&&(!gasLocations2.containsKey(l.clone().subtract(0, 1, 0)))) {
+				if((DangerousPhysics.instance.isAir(l.clone().subtract(0, 1, 0).getBlock().getType())||l.clone().subtract(0, 1, 0).getBlock().getType()==Material.FIRE)&&(!gasLocations2.containsKey(l.clone().subtract(0, 1, 0)))) {
 					double concentration = gasLocations2.get(l);
 					Location newLocation = l.clone().subtract(0, 1, 0);
 					gasLocations.remove(l);
@@ -107,7 +105,7 @@ public class gasManager {
 		BlockFace[] sides = {BlockFace.WEST,BlockFace.SOUTH,BlockFace.NORTH,BlockFace.EAST};
 		for(int sidesR = 0; sidesR < sides.length; sidesR++) {
 			Block b1 = l.clone().getBlock().getRelative(sides[sidesR]);
-			if(mainfile.instance.isAir(b1.getType())&&(!gasLocations.containsKey(b1.getLocation()))) {
+			if(DangerousPhysics.instance.isAir(b1.getType())&&(!gasLocations.containsKey(b1.getLocation()))) {
 				sidetypes.add(sides[sidesR]);
 			}
 		}

@@ -1,4 +1,4 @@
-package spacetime.main;
+package me.evillootly.physics;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -366,7 +366,7 @@ public class durabilities {
 		for(Material m : Material.values()) {
 			if(!duras.containsKey(m + "")) {
 				String mname = m + "";
-				if(mainfile.instance.isStony(m)) {
+				if(DangerousPhysics.instance.isStony(m)) {
 					duras.put(m + "", 8);
 				}
 				else if(mname.contains("PLANK")) {
@@ -588,7 +588,7 @@ public class durabilities {
 		for(Material m : Material.values()) {
 			if(!temp.containsKey(m + "")) {
 				String mname = m + "";
-				if(mainfile.instance.isStony(m)) {
+				if(DangerousPhysics.instance.isStony(m)) {
 					duras.put(m + "", 125);
 				}
 				else if(mname.contains("PLANK")) {

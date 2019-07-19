@@ -1,4 +1,4 @@
-package spacetime.main;
+package me.evillootly.physics;
 
 import java.util.HashMap;
 

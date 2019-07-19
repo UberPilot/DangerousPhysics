@@ -1,11 +1,9 @@
-package spacetime.main;
+package me.evillootly.physics;
 
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.entity.Entity;
 
 public class blockSounds {
 
@@ -20,7 +18,7 @@ public class blockSounds {
 	public void addbreaks() {
 		for(Material m : Material.values()) {
 			String name = m + "";
-			if(mainfile.instance.isStony(m) || name.toLowerCase().contains("stone")||name.toLowerCase().contains("obsidian")||name.toLowerCase().contains("brick")||name.toLowerCase().contains("ore")) {
+			if(DangerousPhysics.instance.isStony(m) || name.toLowerCase().contains("stone")||name.toLowerCase().contains("obsidian")||name.toLowerCase().contains("brick")||name.toLowerCase().contains("ore")) {
 				bbreak.put(name, Sound.BLOCK_STONE_BREAK);
 			}
 			else if(name.toLowerCase().contains("dirt")||name.toLowerCase().contains("grass")||name.toLowerCase().contains("path")||name.toLowerCase().contains("leave")) {
@@ -65,7 +63,7 @@ public class blockSounds {
 	public void addplaces() {
 		for(Material m : Material.values()) {
 			String name = m + "";
-			if(mainfile.instance.isStony(m) || name.toLowerCase().contains("stone")||name.toLowerCase().contains("obsidian")||name.toLowerCase().contains("brick")||name.toLowerCase().contains("ore")) {
+			if(DangerousPhysics.instance.isStony(m) || name.toLowerCase().contains("stone")||name.toLowerCase().contains("obsidian")||name.toLowerCase().contains("brick")||name.toLowerCase().contains("ore")) {
 				bplace.put(name, Sound.BLOCK_STONE_PLACE);
 			}
 			else if(name.toLowerCase().contains("dirt")||name.toLowerCase().contains("grass")||name.toLowerCase().contains("path")||name.toLowerCase().contains("leave")) {

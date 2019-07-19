@@ -1,4 +1,4 @@
-package spacetime.main;
+package me.evillootly.physics;
 
 import org.bukkit.Material;
 import org.bukkit.entity.LivingEntity;

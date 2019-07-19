@@ -1,0 +1,8 @@
+main: me.evillootly.physics.DangerousPhysics
+name: DangerousPhysics
+version: ${project.version}
+authors:
+  - UberPilot
+  - Evil_Lootly
+description: ${project.description}
+api-version: "1.14"

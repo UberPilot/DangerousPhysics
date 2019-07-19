@@ -1,9 +1,0 @@
-main: spacetime.main.mainfile
-name: spacetime
-version: 1.0
-author: Evil_Lootly
-description: Improves on minecrafts physics.
-depend: [LibsDisguises]
-api-version: 1.13
-
-commands:
