@@ -5,7 +5,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class damageReducer {
+public class DamageReducer
+{
 
 	public static void ReducedDamage(LivingEntity en, double damage, Player p) {
 		if(en instanceof Player) {

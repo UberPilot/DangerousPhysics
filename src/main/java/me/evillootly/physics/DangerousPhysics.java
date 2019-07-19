@@ -47,7 +47,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 	
 	//physics
 	
-	public durabilities dur = null;
+	public BlockDurability dur = null;
 	DecimalFormat df = new DecimalFormat("#.####");
 	public HashMap<Block, Integer> tempers = new HashMap<Block, Integer>();
 	public HashMap<Player, Integer> powers = new HashMap<Player, Integer>();
@@ -58,20 +58,20 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 	public List<Block> fires = new ArrayList<Block>();
 	public List<Block> firesT = new ArrayList<Block>();
 	public List<Entity> fallingsands = new ArrayList<Entity>();
-	public blockSounds bs = null;
+	public BlockSounds bs = null;
 	int typess = 0;
 	short datass = 0;
 	public List<Player> wand = new ArrayList<Player>();
 	public boolean doRealisticSpreading = false;
-	public List<gasManager> gsM = new ArrayList<gasManager>();
+	public List<GasManager> gsM = new ArrayList<GasManager>();
 	public boolean doWaterPhysics = false;
 
 	@Override
 	public void onEnable() {
 		instance = this;
 		createConfigFol();
-		bs = new blockSounds();
-		dur = new durabilities();
+		bs = new BlockSounds();
+		dur = new BlockDurability();
 		this.getServer().getPluginManager().registerEvents(this, this);
 		scheduler = getServer().getScheduler();
 		loadConfig();
@@ -111,9 +111,9 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 			worlds.add(Bukkit.getWorlds().get(0).getName());
 			}
 		}
-		gasManager smoke = new gasManager("smoke", Particle.SMOKE_LARGE, 1, 0.6);
-		gasManager steam = new gasManager("steam", Particle.CLOUD, 1, .7);
-		gasManager water = new gasManager("water", Particle.BLOCK_CRACK, 0, 1);
+		GasManager smoke = new GasManager("smoke", Particle.SMOKE_LARGE, 1, 0.6);
+		GasManager steam = new GasManager("steam", Particle.CLOUD, 1, .7);
+		GasManager water = new GasManager("water", Particle.BLOCK_CRACK, 0, 1);
 		gsM.add(smoke);
 		gsM.add(steam);
 		gsM.add(water);
@@ -128,7 +128,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 		scheduler.scheduleSyncRepeatingTask(this, new Runnable() {
 			@Override
 			public void run() {
-				for(gasManager gm : gsM) {
+				for(GasManager gm : gsM) {
 				gm.doParticleEffects();
 				}
 				doGasEffects();
@@ -139,7 +139,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 			public void run() {
 				betterEffectLooper();
 				doDynamicTemperature();
-				for(gasManager gm : gsM) {
+				for(GasManager gm : gsM) {
 					gm.doGravity();
 				}
 			}
@@ -148,7 +148,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 			@Override
 			public void run() {
 				runFireTemp();
-				for(gasManager gm : gsM) {
+				for(GasManager gm : gsM) {
 				gm.checkLives();
 				}
 			}
@@ -860,7 +860,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 	}
 	
 	public void doGasEffects() {
-		for(gasManager gm : gsM) {
+		for(GasManager gm : gsM) {
 			List<Location> gsLocations = new ArrayList<Location>(gm.getLocations());
 			if(!gsLocations.isEmpty()) {
 				for(Location l : gsLocations) {
@@ -1376,7 +1376,7 @@ public class DangerousPhysics extends JavaPlugin implements Listener, CommandExe
 			if(e instanceof LivingEntity) {
 				if(pow2>0) {
 					if(e instanceof Player) {
-						damageReducer.ReducedDamage(((LivingEntity) e), pow2/7.8);
+						DamageReducer.ReducedDamage(((LivingEntity) e), pow2/7.8);
 					}
 					else {
 						((LivingEntity) e).damage(pow2/2);

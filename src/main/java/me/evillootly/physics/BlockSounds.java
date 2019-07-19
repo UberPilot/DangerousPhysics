@@ -5,12 +5,13 @@ import java.util.HashMap;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 
-public class blockSounds {
+public class BlockSounds
+{
 
 	public static HashMap<String, Sound> bbreak = new HashMap<String, Sound>();
 	public static HashMap<String, Sound> bplace = new HashMap<String, Sound>();
 	
-	public blockSounds() {
+	public BlockSounds() {
 		addbreaks();
 		addplaces();
 	}

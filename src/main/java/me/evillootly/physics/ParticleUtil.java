@@ -5,7 +5,7 @@ import java.util.HashMap;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
-public class particle
+public class ParticleUtil
 {
   
   private int energy = 0;
@@ -14,7 +14,7 @@ public class particle
   private Block particleO = null; 
   private double chargePotential = 50.0;
   
-  public particle(Block p, int eng, int eEng, int type, double chargeP)
+  public ParticleUtil(Block p, int eng, int eEng, int type, double chargeP)
   {
     energy = eng;
     eEnergy = eEng;

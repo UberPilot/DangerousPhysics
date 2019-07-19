@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.bukkit.Material;
 
-public class durabilities {
-
+public class BlockDurability
+{
 	public static HashMap<String, Integer> duras = new HashMap<String, Integer>();
 	public static HashMap<String, Integer> temp = new HashMap<String, Integer>();
 	
@@ -17,7 +17,7 @@ public class durabilities {
 	public static HashMap<String, Integer> lengths = new HashMap<String, Integer>();
 	public static List<String> softs = new ArrayList<String>();
 	
-	public durabilities() {
+	public BlockDurability() {
 		addConverts();
 		addLengths();
 		addSofts();

@@ -12,7 +12,8 @@ import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 
-public class gasManager {
+public class GasManager
+{
 	
 	public String name = "";
 	public Particle effectType = null;
@@ -21,7 +22,7 @@ public class gasManager {
 	public HashMap<Location, Double> gasLocations = new HashMap<Location, Double>();
 	Random randor = new Random();
 
-	public gasManager(String type, Particle p, int downorup, double lifelength) {
+	public GasManager(String type, Particle p, int downorup, double lifelength) {
 		name = type;
 		effectType = p;
 		gravity = downorup;
